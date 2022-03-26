@@ -85,22 +85,60 @@ let map = L.map('mapid', {
   center: [43.7, -79.3],
   zoom: 11,
   layers: [satelliteStreets]
-});
 
+})
 
 
 // Pass our map layers into our layers control and add the layers control to the map.
 L.control.layers(baseMaps).addTo(map);
 
 // Then we add our 'graymap' tile layer to the map.
-// satelliteStreets.addTo(map);
+
+satelliteStreets.addTo(map);
+
+// // Accessing the airport GeoJSON URL
+// let airportData = "https://raw.githubusercontent.com/PCE1968/Mapping_Earthquakes/main/majorAirports.json";
+
+// // Grabbing our GeoJSON data.
+// d3.json(airportData).then(function(data) {
+//   console.log(data);
+// // Creating a GeoJSON layer with the retrieved data.
+// L.geoJSON(data, {
+//     onEachFeature: function(feature, layer) {
+//       console.log(layer);
+//       layer.bindPopup("Airport code: " + feature.properties.faa + "<hr>Airport name: " + feature.properties.name);
+//     }
+//   }).addTo(map);
+// });
+
+// // Accessing the Toronto airline routes GeoJSON URL.
+// let torontoData = "https://raw.githubusercontent.com/PCE1968/Mapping_Earthquakes/main/torontoRoutes.json";
+
+// // Create a style for the lines.
+// let myStyle = {
+//   color: "#ffffa1",
+//   weight: 2
+// }
+
+// // Grabbing our GeoJSON data.
+// d3.json(torontoData).then(function(data) {
+//   console.log(data);
+// // Creating a GeoJSON layer with the retrieved data.
+// L.geoJSON(data, {
+//   style: myStyle,
+//   onEachFeature: function(feature, layer) {
+//     layer.bindPopup("<h3> Airline: " + feature.properties.airline + "</h3> <hr><h3> Destination: " + feature.properties.dst + "<h3>");
+//   }
+// }).addTo(map);
+// });
+
 
 // Accessing the Toronto neighborhoods GeoJSON URL.
 let torontoHoods = "https://raw.githubusercontent.com/PCE1968/Mapping_Earthquakes/main/torontoNeighborhoods.json";
 
-// Grabbing our GeoJSON data.
+
 d3.json(torontoHoods).then(function(data) {
-    console.log(data);
-    // Creating a GeoJSON layer with the retrieved data.
-    L.geoJSON(data).addto(map);
+  console.log(data);
+  L.geoJSON(data).addTo(map);
+
 });
