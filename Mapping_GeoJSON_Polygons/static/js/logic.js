@@ -85,12 +85,15 @@ let map = L.map('mapid', {
   center: [43.7, -79.3],
   zoom: 11,
   layers: [satelliteStreets]
+
 })
+
 
 // Pass our map layers into our layers control and add the layers control to the map.
 L.control.layers(baseMaps).addTo(map);
 
 // Then we add our 'graymap' tile layer to the map.
+
 satelliteStreets.addTo(map);
 
 // // Accessing the airport GeoJSON URL
@@ -129,10 +132,13 @@ satelliteStreets.addTo(map);
 // }).addTo(map);
 // });
 
+
 // Accessing the Toronto neighborhoods GeoJSON URL.
 let torontoHoods = "https://raw.githubusercontent.com/PCE1968/Mapping_Earthquakes/main/torontoNeighborhoods.json";
+
 
 d3.json(torontoHoods).then(function(data) {
   console.log(data);
   L.geoJSON(data).addTo(map);
+
 });
